@@ -5,21 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | MarbleRoulette</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script>
-        function Reset()
-        {
-            var canvas = document.getElementById("#canvas");
-            var h = document.documentElement.clientHeight;
-            var w = document.documentElement.clientWidth;
-            canvas.height = 2340;
-            canvas.width = 1080;
-        }
-    </script>
+    <link rel="stylesheet" href="TemplateData/style.css">    
   </head>
-  <body onload="Reset()" onresize="Reset()">
+  <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=1080 height=2340 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
