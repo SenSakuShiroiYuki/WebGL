@@ -12,9 +12,8 @@
             var canvas = document.getElementById("#canvas");
             var h = document.documentElement.clientHeight;
             var w = document.documentElement.clientWidth;
-            var scale = 1080 / 2340;
-            if (w / h > scale) { canvas.height = h; canvas.width = h * scale; }
-            if (w / h < scale) { canvas.height = w / scale; canvas.width = w; }
+            canvas.height = 2340;
+            canvas.width = 1080;
         }
     </script>
   </head>
