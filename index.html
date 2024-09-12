@@ -32,6 +32,14 @@
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
 
+      function resizeCanvas() {
+          var canvas = document.getElementById("unity-canvas");
+          canvas.style.width = window.innerWidth + "px";
+          canvas.style.height = window.innerHeight + "px";
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      window.addEventListener('load', resizeCanvas);
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
       // If type=='warning', a yellow highlight color is used.
