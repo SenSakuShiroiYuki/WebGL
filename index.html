@@ -28,7 +28,7 @@
 
     window.addEventListener("beforeunload", function (event) {
         // 向 Unity 發送一個事件來儲存遊戲進度
-        gameInstance.SendMessage('GameManager', 'OnBeforeUnload');
+        gameInstance.SendMessage('AutoSave', 'OnBeforeUnload');
 
         // 提供標準提示，部分瀏覽器不允許自定義訊息
         event.preventDefault();
