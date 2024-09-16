@@ -31,10 +31,7 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
-
-	function saveGameData() {
-            unityInstance.SendMessage('AutoSave', 'OnBeforeUnload'); // 将 'YourGameObjectName' 替换为实际 GameObject 的名称
-    }
+	
 
 	window.addEventListener('beforeunload', function (event) {
         const confirmationMessage = 'Close And Save Game Data？';
@@ -43,7 +40,8 @@
 		});
 
     window.addEventListener('unload', function () {
-        saveGameData();
+        const confirmationMessage = 'Close And Save Game Data？';
+		unityInstance.SendMessage('AutoSave', 'OnBeforeUnload');
     });
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
