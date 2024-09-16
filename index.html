@@ -23,18 +23,6 @@
         <div id="unity-build-title">MarbleRoulette</div>
       </div>
     </div>
-	<script type="text/javascript">
-    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/YourBuildName.json");
-
-    window.addEventListener("beforeunload", function (event) {
-        // 向 Unity 發送一個事件來儲存遊戲進度
-        gameInstance.SendMessage('AutoSave', 'OnBeforeUnload');
-
-        // 提供標準提示，部分瀏覽器不允許自定義訊息
-        event.preventDefault();
-        event.returnValue = '';
-    });
-	</script>
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -44,6 +32,19 @@
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
 
+	function saveGameData() {
+            unityInstance.SendMessage('AutoSave', 'OnBeforeUnload'); // 将 'YourGameObjectName' 替换为实际 GameObject 的名称
+    }
+
+	window.addEventListener('beforeunload', function (event) {
+        const confirmationMessage = 'Close And Save Game Data？';
+        event.returnValue = confirmationMessage;
+        return confirmationMessage;
+		});
+
+    window.addEventListener('unload', function () {
+        saveGameData();
+    });
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
       // If type=='warning', a yellow highlight color is used.
