@@ -23,6 +23,18 @@
         <div id="unity-build-title">MarbleRoulette</div>
       </div>
     </div>
+	<script type="text/javascript">
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/YourBuildName.json");
+
+    window.addEventListener("beforeunload", function (event) {
+        // 向 Unity 發送一個事件來儲存遊戲進度
+        gameInstance.SendMessage('GameManager', 'OnBeforeUnload');
+
+        // 提供標準提示，部分瀏覽器不允許自定義訊息
+        event.preventDefault();
+        event.returnValue = '';
+    });
+	</script>
     <script>
 
       var container = document.querySelector("#unity-container");
