@@ -31,18 +31,7 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
-	
 
-	window.addEventListener('beforeunload', function (event) {
-        const confirmationMessage = 'Close And Save Game Data？';
-        event.returnValue = confirmationMessage;
-        return confirmationMessage;
-		});
-
-    window.addEventListener('unload', function () {
-        const confirmationMessage = 'Close And Save Game Data？';
-		unityInstance.SendMessage('AutoSave', 'OnBeforeUnload');
-    });
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
       // If type=='warning', a yellow highlight color is used.
@@ -68,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/MR2.loader.js";
+      var loaderUrl = buildUrl + "/MarbleRoulette.loader.js";
       var config = {
-        dataUrl: buildUrl + "/MR2.data",
-        frameworkUrl: buildUrl + "/MR2.framework.js",
-        codeUrl: buildUrl + "/MR2.wasm",
+        dataUrl: buildUrl + "/MarbleRoulette.data",
+        frameworkUrl: buildUrl + "/MarbleRoulette.framework.js",
+        codeUrl: buildUrl + "/MarbleRoulette.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Nobollel",
         productName: "MarbleRoulette",
