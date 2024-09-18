@@ -6,8 +6,28 @@
     <title>Unity WebGL Player | MarbleRoulette</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+	<script>
+		function Reset()
+		{
+			var canvas = document.getElementsById("#canvas");
+			var h = document.documentElement.clientHeight;
+			var w = document.documentElement.clientWidth;
+			var scale = 1080/2340;
+			if(w/h > scale)
+			{
+				canvas.hight = h;
+				canvas.width = h * scale;
+			}
+			if(w/h < scale)
+			{
+				canvas.hight = w / scale;
+				canvas.width = w;
+			}
+			
+		}
+	</script>
   </head>
-  <body>
+  <body onload = "Reset()" onresize = "Reset()">
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=360 height=780 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -17,11 +37,11 @@
         </div>
       </div>
       <div id="unity-warning"> </div>
-      <div id="unity-footer">
+      <!--<div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">MarbleRoulette</div>
-      </div>
+      </div>-->
     </div>
     <script>
 
